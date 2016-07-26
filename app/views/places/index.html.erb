@@ -4,5 +4,17 @@
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
   </div>
+
+<div class="container-fluid"> 
+  <div class="row">
+    <div class="pageinfo col-xs-5 col-xs-offset-1" style="text-align: left">
+    <%= page_entries_info @places %>
+    </div>
+    <div class="pagelink col-xs-5 " style="text-align: right">
+    <%= paginate @places %>  
+    </div>
+  </div>
+</div>
+
 <%end%>
 
