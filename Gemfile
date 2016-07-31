@@ -50,3 +50,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'sprockets', '2.11.0'
 #Kaminari for pagination
 gem 'kaminari'
+#add rspec
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
