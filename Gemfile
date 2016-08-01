@@ -54,7 +54,10 @@ gem 'kaminari'
 gem 'simple_form'
 #login devise
 gem 'devise', '>= 3.2.4'
-
+#geocoding
+gem "geocoder", "1.3.4"
+#Adding values to ENV
+gem "figaro", ">= 1.0.0"
 #add rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
