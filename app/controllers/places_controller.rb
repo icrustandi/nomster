@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  #require a user to be logged in for these functions
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @places = Place.all.page(params[:page]).per(5)
   end
@@ -19,16 +20,26 @@ class PlacesController < ApplicationController
 
   def edit
     @place = Place.find(params[:id])
+    #allow only correct user to access edit
+    if @place.user != current_user
+    return render text: 'You are not allowed to edit this Munch!', status: :forbidden
+    end
   end
 
   def update
     @place = Place.find(params[:id])
+    if @place.user != current_user
+    return render text: 'You are not allowed to edit this Munch!', status: :forbidden
+    end
     @place.update_attributes(place_params)
     redirect_to root_path
   end
 
   def destroy
     @place = Place.find(params[:id])
+    if @place.user != current_user
+    return render text: 'You are not allowed to delete this Munch!', status: :forbidden
+    end
     @place.destroy
     redirect_to root_path
   end
