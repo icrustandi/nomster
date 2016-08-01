@@ -52,8 +52,12 @@ gem 'sprockets', '2.11.0'
 gem 'kaminari'
 #Simple Form
 gem 'simple_form'
+#login devise
+gem 'devise', '>= 3.2.4'
 
 #add rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
+
+
