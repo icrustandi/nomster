@@ -44,3 +44,13 @@ body {
   margin: 0;
 }
 
+.row {
+  padding: 20px;
+}
+
+.field_with_errors {
+  color: #BF0606;
+  background-color: #FFEEEE;
+  border-radius: 3px;
+  padding:8px;
+}
