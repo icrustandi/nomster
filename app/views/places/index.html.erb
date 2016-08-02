@@ -6,6 +6,19 @@
     <% if place.user.present? %>
       <small><%= place.user.email %></small>
     <% end %>
+    <% if place.comments.present? %>
+    <div class="col-xs-12">
+      <blockquote>
+      <div class="rating">
+        <% if place.comments.order("id ASC").last.humanized_rating.present? %>
+          <b><%= place.comments.order("id ASC").last.humanized_rating %></b> -
+        <% end %>
+      </div>
+        <%= place.comments.order("id ASC").last.message %>
+        <small><%= place.comments.order("id ASC").last.user.email %></small>
+      </blockquote>
+    </div>
+    <% end %>
   </div>
 <%end%>
 

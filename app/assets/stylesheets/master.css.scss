@@ -61,3 +61,22 @@ body {
 .clear {
   clear: both;
 }
+
+blockquote {
+background: rgba(255, 255, 255, 0.6);
+border-left:1em solid #eee;
+margin:1.5em 1em;
+padding:.5em 1em;
+quotes:"\201C""\201D";
+}
+
+blockquote :first-child {
+display:inline;
+}
+blockquote :last-child {
+margin-bottom:0;
+}
+
+.rating {
+  
+}
