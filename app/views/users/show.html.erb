@@ -5,7 +5,7 @@
     <%= image_tag 'user.png', :class=>"imagesize"%>
   </div>
   <div class="col-xs-12 col-sm-6">
-    <h2><%= @user.email %></h2>
+    <h3 class="username"><%= @user.email %></h3>
     <h3>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
     <h4>Total reviews: <%= @user.comments.count %></h4>
     <h4>✪✪✪✪✪ reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
