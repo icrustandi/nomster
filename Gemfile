@@ -64,4 +64,5 @@ group :development, :test do
   gem 'capybara'
 end
 
-
+gem 'carrierwave'
+gem 'fog'
