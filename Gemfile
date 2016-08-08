@@ -61,6 +61,7 @@ gem "figaro", ">= 1.0.0"
 #add rspec
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
+  gem 'capybara'
 end
 
 
