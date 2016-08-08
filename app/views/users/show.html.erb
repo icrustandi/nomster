@@ -1,0 +1,46 @@
+<div class="placesbox col-xs-10 col-xs-offset-1">
+  <h1>Muncher Profile</h1>
+  <br />
+  <div class="col-xs-4 col-xs-offset-1">
+    <%= image_tag 'user.png' %>
+  </div>
+  <div class="col-xs-6">
+    <h2><%= @user.email %></h2>
+    <h3>Member since: <%= @user.created_at.strftime("%B %d, %Y") %></h3>
+    <h4>Total reviews: <%= @user.comments.count %></h4>
+    <h4>✪✪✪✪✪ reviews: <%= @user.comments.where(rating: '5_stars').count %></h4>
+  </div>
+  <br />
+  <div class="clear"></div>
+<br /><br />
+<br /><br />
+<h2>Muncher's Reviews</h2>
+<br />
+<% @user.comments.each do |comment| %>
+  <div class="col-xs-12 col-sm-6">
+
+    <blockquote>
+    <div class="rating">
+    <%= link_to comment.place.name, place_path(comment.place) %>
+    <br />
+      <% if comment.humanized_rating.present? %>
+        <b><%= comment.humanized_rating %></b> -
+      <% end %>
+    </div>
+      <%= comment.message %>
+    </blockquote>
+  </div>
+<% end %>
+<div class="clear"></div>
+
+<br /><br />
+<h2>Muncher's Munches</h2>
+<br />
+<% @user.places.each do |place| %>
+  <div class="placesbox col-xs-10 col-xs-offset-1">
+    <%= link_to place.name, place_path(place) %> - <small><i><%= place.address %></i></small>
+  </div>
+<% end %>
+<br />
+</div>
+
