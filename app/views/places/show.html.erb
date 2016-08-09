@@ -3,20 +3,8 @@
   <i><%= @place.address %></i>
   <br/><br/>
   <p><%= @place.description %></p>
-<!--Show Photos -->
+  <div class="clear"></div>
 
-<% @place.photos.each do |photo| %>
-
-      <%= image_tag photo.picture, :class=>"imagesize" %>
-      <br />
-      <%= photo.caption %>
-      <br />
-      <small><%= photo.user.email %></small>
-      <div class="clear"></div>
-      <br />
-<% end %>
-<div class="clear"></div>
-<!-- Photos -->
 <!--Draw Maps-->
 <% if @place.latitude.present? && @place.longitude.present? %>
     <script>
@@ -112,12 +100,11 @@
 <div class="clear"></div>
 <br /><br />
 
-<div class="col-xs-10 col-xs-offset-1">
-  <h1 class= "pull-left">Reviews</h1>
-</div>
 
+<div class="placesbox col-xs-10 col-xs-offset-1">
+  <h1>Reviews</h1>
+  <br /><br />
 <div class="clear"></div>
-
 <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
     <blockquote>
@@ -131,3 +118,23 @@
     </blockquote>
   </div>
 <% end %>
+
+</div>
+
+<br />
+
+<!--Show Photos -->
+<div class="placesbox col-xs-10 col-xs-offset-1">
+<h1>Photos</h1>
+<br /><br />
+<% @place.photos.each do |photo| %>
+
+      <%= image_tag photo.picture, :class=>"imagesize" %>
+      <br />
+      <%= photo.caption %> - <small><%= photo.user.email %></small>
+      <div class="clear"></div>
+      <br />
+<% end %>
+</div>
+<div class="clear"></div>
+<!-- Photos -->
